@@ -1,0 +1,171 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    /* font-style: normal; */
+}
+
+#body {
+    background-color: #e5e5e5;
+    display: flex;
+    height: 100vh; 
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+#mainContainer {
+    display: flex;
+    height: 449px;
+    border-radius: 5px;
+    overflow: hidden;
+    width: auto;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+#signin {
+    background-color: #2d3748;
+}
+
+#login {
+    background-color: #04c35c;
+}
+
+.innerContainer {
+    min-width: 359px;
+    height: 100%;
+    background-color: white;
+}
+
+
+.formContainer {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+}
+
+#joinfree {
+    position: absolute;
+    bottom: -40px;
+    font-size: 12px;
+    width: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.childContainer h2{
+    padding-bottom: 9px;
+}
+
+
+.innerChildContainer {
+    display: flex;
+    justify-content: center;
+    padding-right: 30px;
+
+}
+
+.innerChildContainer input {
+    margin-right: 3px;
+}
+
+
+#formContainer {
+    padding: 50px;
+}
+
+.innerChildContainer span {
+    margin: auto;
+}
+
+.childContainer span a {
+    text-decoration-line: underline;
+}
+
+#welcomeContainer {
+    margin-bottom: -10px;
+}
+
+#titleContainerLogin {
+    margin-bottom: 2px;
+}
+
+#titleContainerLogin h2 {
+    font-family: "Freeman", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+
+#emailContainerLogin,
+#passwordContainerLogin {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 2px;
+}
+
+.childContainer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+#joinfree a {
+    text-decoration-line: underline;
+}
+
+#emailContainerLogin input,
+#passwordContainerLogin input {
+    padding: 10px;
+    text-align: start;
+    font-size: 15px;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    border: 1px solid rgb(95, 93, 93);
+}
+
+.btnContainer {
+    width: 100%;
+    height: 100%;
+    padding: 12px;
+    border: 0px transparent;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: white;
+    gap: 2px;
+}
+
+#login:hover {
+    background-color: #06ac53;
+}
+
+#sigin:hover {
+    background-color: #2e3c53;
+}
+
+.btnContainer img {
+    height: 20px;
+}
+
+
+
+
+
+@media screen and (max-width: 770px) {
+    #loginImageContainer {
+        display: none;
+    }
+}
