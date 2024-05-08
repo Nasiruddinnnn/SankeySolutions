@@ -1,0 +1,70 @@
+<!-- <!DOCTYPE html> -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LoginPage </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body id="body">
+    <div id="mainContainer">
+        <div id="loginImageContainer" class="innerContainer">
+            <img src="sidebarphoto.png" alt="This is a Login Image">
+        </div>
+        <div id="formContainer" class="innerContainer">
+            <form id="loginForm" class="formContainer">
+                <div id="welcomeContainer" class="childContainer">
+                    <h5>Welcome back</h5>
+                </div>
+                <div id="titleContainerLogin" class="childContainer">
+                    <h2>Login to your account</h2>
+                </div>
+    
+                <div class="childContainer">
+                    <div id="emailContainerLogin">
+                        <label for="email">Email</label>
+                        <input id="email" type="email" placeholder="yourname@example.com" required>
+                        <div id="emailError" class="error-message"></div>
+                    </div>
+                </div>
+    
+                <div class="childContainer">
+                    <div id="passwordContainerLogin">
+                        <label for="password">Password</label>
+                        <input id="password" type="password" placeholder="********" required minlength="8">
+                        <div id="passwordError" class="error-message"></div>
+                    </div>
+                </div>
+    
+                <div class="childContainer">
+                    <div class="innerChildContainer">
+                        <input id="rememberMe" type="radio">
+                        <label for="rememberMe">Remember me</label>
+                    </div>
+                    <span><a href="#">Forgot password?</a></span>
+                </div>
+                <br>
+
+                
+    
+                <div class="childContainer">
+                    
+                    <button id="login" type="submit">Login now</button>
+                    
+                </div>
+                <div id="loginResult"></div>
+                <div class="childContainer">
+                    
+                    <button id="signin" class="btnContainer"><img src="google.svg" alt=""> Or sign-in with Google</button>
+                </div>
+
+                <span id="joinfree">Don't have an Account? <a href="#">Join free today</a></span>
+            </form>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
