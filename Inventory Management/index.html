@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inventory Management System</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="navbar">
+        <div class="navbar-brand">
+          <img src="logo1.png" alt="Logo" class="logo" />
+        </div>
+        <nav class="navbar-nav">
+          <input type="text" id="searchInput" placeholder="Search..." />
+          <select id="searchAttribute">
+            <option value="productId">Product ID</option>
+            <option value="category">Category</option>
+            <option value="subcategory">Subcategory</option>
+            <option value="price">Price</option>
+            <option value="stockQuantity">Stock Quantity</option>
+            <option value="stockInfo">Stock Info</option>
+            <option value="manufacturingDate">Manufacturing Date</option>
+            <option value="expiryDate">Expiry Date</option>
+          </select>
+          <button id="searchButton">Search</button>&nbsp &nbsp
+
+          <select id="sortAttribute">
+            <option value="productId">Product ID</option>
+            <option value="category">Category</option>
+            <option value="subcategory">Subcategory</option>
+            <option value="price">Price</option>
+            <option value="stockQuantity">Stock Quantity</option>
+            <option value="stockInfo">Stock Info</option>
+            <option value="manufacturingDate">Manufacturing Date</option>
+            <option value="expiryDate">Expiry Date</option>
+            <!-- Add more options for other attributes as needed -->
+          </select>
+          <select id="sortOrder">
+            <option value="asc">Ascending</option>
+            <option value="desc">Descending</option>
+          </select>
+          <button id="sortButton">Sort</button>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <button id="addProductButton">Add Product</button>
+      <section id="inventory">
+        <h2>Inventory</h2>
+        <br />
+        <table id="product-table">
+          <thead>
+            <tr>
+              <th>Product ID</th>
+              <th>Category</th>
+              <th>Subcategory</th>
+              <th>Price</th>
+              <th>Stock Quantity</th>
+              <th>Stock Info</th>
+              <th>Manufacturing Date</th>
+              <th>Expiry Date</th>
+              <th>Action</th>
+              <th>Order History</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+        <br />
+        <!-- <div id="pagination"></div> -->
+      </section>
+      <br />
+      <button id="backButton" style="display: none">Back</button>
+
+      <br />
+      
+      
+
+      <hr />
+      <br />
+      <div id="orderSection">
+        <button id="placeOrderButton">ADD Orders</button>
+      </div>
+    </main>
+
+    <!-- Modal for adding a new product -->
+    <div id="productModal" class="modal">
+      <div class="modal-content">
+        <span class="close1">&times;</span>
+        <h2>Add Product</h2>
+        <br />
+        <form id="product-form">
+          <label for="productId">Product ID:</label>
+          <input
+            type="text"
+            id="productId"
+            required
+            oninput="validateProductId(event)"
+          /><br />
+          <span id="productIdError" class="error"></span><br />
+
+          <label for="category">Category:</label>
+          <select id="category" required>
+            <option value="">Select Category</option>
+            <option value="Perishable">Perishable</option>
+            <option value="Non-Perishable">Non-Perishable</option></select
+          ><br />
+          <span id="categoryError" class="error"></span><br />
+
+          <label for="subcategory">Subcategory:</label>
+          <select id="subcategory" required>
+            <option value="">Select Subcategory</option>
+            <option value="Food Product">Food Product</option>
+            <option value="Medical Supplies">Medical Supplies</option>
+            <option value="Household Product">Household Product</option>
+            <option value="Durable Goods">Durable Goods</option></select
+          ><br />
+          <span id="subcategoryError" class="error"></span><br />
+
+          <label for="price">Price:</label>
+          <input type="number" id="price" required /><br />
+          <span id="priceError" class="error"></span><br />
+
+          <label for="stockQuantity">Stock Quantity:</label>
+          <input type="number" id="stockQuantity" required /><br />
+          <span id="stockQuantityError" class="error"></span><br />
+
+          <label for="stockInfo">Stock Info:</label>
+          <input  type="text" id="stockInfo" required readonly /><br />
+          <span id="stockInfoError" class="error"></span><br />
+
+          <label for="manufacturingDate">Manufacturing Date:</label>
+          <input type="date" id="manufacturingDate" required /><br />
+          <span id="manufacturingDateError" class="error"></span><br />
+
+          <label for="expiryDate">Expiry Date:</label>
+          <input type="date" id="expiryDate" required /><br />
+          <span id="expiryDateError" class="error"></span><br />
+
+          <button type="submit">Add Product</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Edit Product Modal -->
+    <div id="editProductModal" class="modal">
+      <div class="modal-content">
+        <span class="close2">&times;</span>
+        <h2>Edit Product</h2>
+        <form id="edit-product-form">
+          <label for="editProductId">Product ID:</label>
+          <input type="text" id="editProductId" required /><br />
+          <span id="editProductIdError" class="error"></span><br />
+
+          <label for="editCategory">Category:</label>
+          <select id="editCategory" required>
+            <option value="">Select Category</option>
+            <option value="Perishable">Perishable</option>
+            <option value="Non-Perishable">Non-Perishable</option></select
+          ><br />
+          <span id="editCategoryError" class="error"></span><br />
+
+          <label for="editSubcategory">Subcategory:</label>
+          <select id="editSubcategory" required>
+            <option value="">Select Subcategory</option>
+            <option value="Food Product">Food Product</option>
+            <option value="Medical Supplies">Medical Supplies</option>
+            <option value="Household Product">Household Product</option>
+            <option value="Durable Goods">Durable Goods</option></select
+          ><br />
+          <span id="editSubcategoryError" class="error"></span><br />
+
+          <label for="editPrice">Price:</label>
+          <input type="number" id="editPrice" required /><br />
+          <span id="editPriceError" class="error"></span><br />
+
+          <label for="editStockQuantity">Stock Quantity:</label>
+          <input type="number" id="editStockQuantity" required /><br />
+          <span id="editStockQuantityError" class="error"></span><br />
+
+          <label for="editStockInfo">Stock Info:</label>
+          <input type="text" id="editStockInfo" required readonly /><br />
+          <span id="editStockInfoError" class="error"></span><br />
+
+          <label for="editManufacturingDate">Manufacturing Date:</label>
+          <input type="date" id="editManufacturingDate" required /><br />
+          <span id="editManufacturingDateError" class="error"></span><br />
+
+          <label for="editExpiryDate">Expiry Date:</label>
+          <input type="date" id="editExpiryDate" required /><br />
+          <span id="editExpiryDateError" class="error"></span><br />
+
+          <button type="submit">Save</button>
+        </form>
+      </div>
+    </div>
+
+    <div id="orderHistoryModal" class="modal">
+      <div class="modal-content">
+        <span class="close3">&times;</span>
+        <div id="orderHistory"></div>
+      </div>
+    </div>
+
+    <script src="validation.js" type="module"></script>
+    <script src="app.js" type="module"></script>
+    <!-- <script src="pagination.js"></script> -->
+  </body>
+</html>
